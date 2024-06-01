@@ -31,38 +31,45 @@ const Home = () => {
     return (
         <div>
             <Container className="carousel-container">
-            <Carousel>
-                <Carousel.Item>
-                    <img src= "https://s.superbid.net/image/f9/53/f953b395-e158-4da0-8a4f-9c4e7199b506.png" text="First slide" />
-                    <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img src= "https://s.superbid.net/image/f9/53/f953b395-e158-4da0-8a4f-9c4e7199b506.png" text="Second slide" />
-                    <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img src= "https://s.superbid.net/image/f9/53/f953b395-e158-4da0-8a4f-9c4e7199b506.png" text="Third slide" />
-                    <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>
-                        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                    </p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
+                <Carousel>
+                    <Carousel.Item>
+                        <img
+                            src="https://s.superbid.net/image/f9/53/f953b395-e158-4da0-8a4f-9c4e7199b506.png"
+                            alt="First slide"
+                        />
+                        <Carousel.Caption>
+                            <h3>First slide label</h3>
+                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            src="https://s.superbid.net/image/f9/53/f953b395-e158-4da0-8a4f-9c4e7199b506.png"
+                            alt="Second slide"
+                        />
+                        <Carousel.Caption>
+                            <h3>Second slide label</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            src="https://s.superbid.net/image/f9/53/f953b395-e158-4da0-8a4f-9c4e7199b506.png"
+                            alt="Third slide"
+                        />
+                        <Carousel.Caption>
+                            <h3>Third slide label</h3>
+                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                </Carousel>
             </Container>
             <Container className="cards-container">
                 {currentCards.map(card => (
                     <Card key={card.id} style={{ width: '18rem', margin: '10px' }}>
                         <Card.Img variant="top" src={card.image} />
                         <Card.Body>
-                            <Card.Title>{card.title}</Card.Title>
+                            <Card.Title as="h5">{card.title}</Card.Title>
                             <Card.Text>{card.description}</Card.Text>
                             <Button variant="primary">Learn More</Button>
                         </Card.Body>
