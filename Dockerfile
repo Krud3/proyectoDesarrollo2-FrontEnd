@@ -11,7 +11,11 @@ COPY package*.json ./
 RUN npm install
 
 # Copy the rest of your app's source code from your host to your image filesystem.
-COPY . .
+# Be more specific here to avoid copying sensitive data
+COPY public ./public
+COPY src ./src
+COPY .env .env
+COPY vite.config.js vite.config.js
 
 # Build the project for production
 RUN npm run build
