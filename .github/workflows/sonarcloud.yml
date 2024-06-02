@@ -24,7 +24,7 @@ jobs:
           -Dsonar.organization=desarrollo2front
           -Dsonar.projectKey=Krud3_proyectoDesarrollo2-FrontEnd
           -Dsonar.sources=.
-          -Dsonar.exclusions=**/node_modules/**, **/dist/**
+          -Dsonar.exclusions=**/node_modules/**
           -Dsonar.language=js
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
