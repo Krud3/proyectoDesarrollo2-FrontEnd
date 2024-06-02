@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - feature/blackBox
-      
+
 name: Main Workflow
 jobs:
   sonarcloud:
@@ -18,7 +18,14 @@ jobs:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
     - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@v2 # Ex: v2.1.0, See the latest version at https://github.com/marketplace/actions/sonarcloud-scan
+      uses: sonarsource/sonarcloud-github-action@v2 
+      with:
+        args: >
+          -Dsonar.organization=desarrollo2front
+          -Dsonar.projectKey=Krud3_proyectoDesarrollo2-FrontEnd
+          -Dsonar.sources=.
+          -Dsonar.exclusions=**/node_modules/**, **/dist/**
+          -Dsonar.language=js
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
