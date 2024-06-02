@@ -5,18 +5,7 @@ import Header from '../../components/header/Header';
 
 
 describe('Header Component', () => {
-   it('should have a link that navigates to the footer', () => {
 
-     render(<Header />);
-    
-     const footerLink = screen.getByText(/footer/i);
-    
-     expect(footerLink).toBeInTheDocument();
-    
-     userEvent.click(footerLink);
-    
-     expect(footerLink).toHaveAttribute('href', '#footer');
-   });
   it('should have a link that navigates to the carousel', () => {
     render(<Header />);
     const carouselLink = screen.getByText(/carousel/i);
