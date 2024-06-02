@@ -33,21 +33,21 @@ const Home = () => {
             <Container className="carousel-container">
             <Carousel>
                 <Carousel.Item>
-                    <img src= "https://s.superbid.net/image/f9/53/f953b395-e158-4da0-8a4f-9c4e7199b506.png" text="First slide" />
+                    <img src= "https://s.superbid.net/image/f9/53/f953b395-e158-4da0-8a4f-9c4e7199b506.png" alt="First slide" />
                     <Carousel.Caption>
                     <h3>First slide label</h3>
                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <img src= "https://s.superbid.net/image/f9/53/f953b395-e158-4da0-8a4f-9c4e7199b506.png" text="Second slide" />
+                    <img src= "https://s.superbid.net/image/f9/53/f953b395-e158-4da0-8a4f-9c4e7199b506.png" alt="Second slide" />
                     <Carousel.Caption>
                     <h3>Second slide label</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <img src= "https://s.superbid.net/image/f9/53/f953b395-e158-4da0-8a4f-9c4e7199b506.png" text="Third slide" />
+                    <img src= "https://s.superbid.net/image/f9/53/f953b395-e158-4da0-8a4f-9c4e7199b506.png" alt="Third slide" />
                     <Carousel.Caption>
                     <h3>Third slide label</h3>
                     <p>
