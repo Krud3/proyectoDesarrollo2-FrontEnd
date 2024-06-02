@@ -47,7 +47,7 @@ const Home = () => {
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <img src= "https://s.superbid.net/image/f9/53/f953b395-e158-4da0-8a4f-9c4e7199b506.png" text="Third slide" />
+                    <img src= "https://s.superbid.net/image/f9/53/f953b395-e158-4da0-8a4f-9c4e7199b506.png" alt="Third slide" />
                     <Carousel.Caption>
                     <h3>Third slide label</h3>
                     <p>
