@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { describe, it, expect } from 'vitest';
-import About from '../components/About'; // Ajusta la ruta según la estructura de tu proyecto
+import About from '../../components/about'; // Ajusta la ruta según la estructura de tu proyecto
 
 describe('About Component', () => {
   it('should render the About component', () => {
