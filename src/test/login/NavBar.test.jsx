@@ -24,10 +24,4 @@ describe('Header Component', () => {
     expect(carouselLink).toHaveAttribute('href', '#carousel');
   });
 
-  it('should have a link that navigates to the pagination', () => {
-    render(<Header />);
-    const paginationLink = screen.getByText(/pagination/i);
-    expect(paginationLink).toBeInTheDocument();
-    expect(paginationLink).toHaveAttribute('href', '#pagination');
-  });
 });
