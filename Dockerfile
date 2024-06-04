@@ -1,32 +1,25 @@
-# Stage 1: Build the React application
-FROM node:18.17.0-alpine AS build
+# Dockerfile.testing
+FROM node:18.17.0-alpine
+
+# Create a group and user to run the application
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+# Copy package.json and package-lock.json or yarn.lockasdf
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+# Install dependencies including 'devDependencies'
+RUN npm install --ignore-scripts
 
-# Copy the rest of your app's source code from your host to your image filesystem.
-COPY . .
+# Copy only necessary source files
+COPY public ./public
+COPY src ./src
+COPY vite.config.js vite.config.js
 
-# Build the project for production
-RUN npm run build
+# Change ownership of the working directory to the non-root user
+RUN chown -R appuser:appgroup /app
 
-RUN npm run test
-
-
-# Stage 2: Serve the app with nginx
-FROM nginx:stable-alpine
-
-# Copy the build output to replace the default nginx contents.
-COPY --from=build /app/dist /usr/share/nginx/html
-
-# Expose port 80 to the outside once the container has launched
-EXPOSE 80
-
-# Command to run when the container starts
-CMD ["nginx", "-g", "daemon off;"]
+# Switch to the non-root user
+USER appuser

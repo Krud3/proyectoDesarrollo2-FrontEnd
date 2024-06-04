@@ -4,3 +4,10 @@ build
 .git
 .vite
 .vitest
+dist
+.gitignore
+Dockerfile
+docker-compose.yml
+.env
+.vscode
+*.log
