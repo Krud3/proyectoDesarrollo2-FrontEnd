@@ -21,5 +21,5 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME2 }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD2 }}
         run: |
-          docker build -t front/desarrollo2:latest .
-          docker push front/desarrollo2:latest
+          docker build -t krud3/desarrollo2:latest .
+          docker push krud3/desarrollo2:latest
