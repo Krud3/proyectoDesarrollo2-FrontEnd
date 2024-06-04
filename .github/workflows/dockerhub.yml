@@ -18,8 +18,8 @@ jobs:
 
       - name: Build and push images
         env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME2 }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD2 }}
+          DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USER }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASS }}
         run: |
           docker build -t krud3/desarrollo2:latest .
           docker push krud3/desarrollo2:latest
