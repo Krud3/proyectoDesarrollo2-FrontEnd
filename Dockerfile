@@ -7,7 +7,7 @@ RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json or yarn.lock
+# Copy package.json and package-lock.json or yarn.lockasdf
 COPY package*.json ./
 
 # Install dependencies including 'devDependencies'
