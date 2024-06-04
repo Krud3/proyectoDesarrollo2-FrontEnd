@@ -20,8 +20,6 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME2 }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD2 }}
-
-      - name: Build and push Docker image
         run: |
           docker build -t front/desarrollo2:latest .
           docker push front/desarrollo2:latest
