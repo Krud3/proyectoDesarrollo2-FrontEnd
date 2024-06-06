@@ -20,6 +20,22 @@ const Home = () => {
     description: `Description for card ${i + 1}`,
   }));
 
+  // Datos para el carrusel
+  const carouselData = [
+    {
+      src: "https://i.pinimg.com/564x/ce/9d/01/ce9d01eae7093b311218e20fbee410f5.jpg",
+      alt: "First slide",
+    },
+    {
+      src: "https://www.artic.edu/iiif/2/2d484387-2509-5e8e-2c43-22f9981972eb/full/843,/0/default.jpg",
+      alt: "Second slide",
+    },
+    {
+      src: "https://i.pinimg.com/564x/df/23/35/df23359e19e3f33e6fdd12189d6c15c0.jpg",
+      alt: "Third slide",
+    },
+  ];
+
   // Calculando tarjetas para la página actual
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -30,45 +46,33 @@ const Home = () => {
 
   return (
     <div>
-      <Container className="carousel-container">
+      <Container className="text-center my-5">
+  <div className="title-wrapper">
+    <img src="https://cdn-icons-png.flaticon.com/512/103/103461.png" alt="Left Image" className="title-image" />
+    <h1 className="welcome-title display-4">
+      Welcome to <br /> <span className="gallery-title">Gallery Gavel</span>
+    </h1>
+    <img src="https://cdn-icons-png.flaticon.com/512/103/103461.png" alt="Right Image" className="title-image flipped" />
+  </div>
+  <p className="collection-text lead">explore our artwork collection </p>
+</Container>
+      <Container className="carousel-wrapper">
         <Carousel>
-          <Carousel.Item>
-            <img
-              src="https://s.superbid.net/image/f9/53/f953b395-e158-4da0-8a4f-9c4e7199b506.png"
-              alt="First slide"
-            />
-            <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              src="https://s.superbid.net/image/f9/53/f953b395-e158-4da0-8a4f-9c4e7199b506.png"
-              alt="Second slide"
-            />
-            <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              src="https://s.superbid.net/image/f9/53/f953b395-e158-4da0-8a4f-9c4e7199b506.png"
-              alt="Third slide"
-            />
-            <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </Carousel.Caption>
-          </Carousel.Item>
+          {carouselData.map((item, index) => (
+            <Carousel.Item key={index}>
+              <img
+                className="d-block w-100"
+                src={item.src}
+                alt={item.alt}
+                style={{ height: "485px", objectFit: "fill" }}
+              />
+            </Carousel.Item>
+          ))}
         </Carousel>
       </Container>
       <Container className="cards-container">
         {currentCards.map((card) => (
-          <Card key={card.id} style={{ width: "18rem", margin: "10px" }}>
+          <Card key={card.id} className="m-3 shadow-sm" style={{ width: "18rem" }}>
             <Card.Img variant="top" src={card.image} />
             <Card.Body>
               <Card.Title>{card.title}</Card.Title>
@@ -78,18 +82,21 @@ const Home = () => {
           </Card>
         ))}
       </Container>
-      <Pagination>
-        {Array.from({ length: totalPages }, (_, i) => (
-          <Pagination.Item
-            key={i + 1}
-            active={i + 1 === currentPage}
-            onClick={() => paginate(i + 1)}
-          >
-            {i + 1}
-          </Pagination.Item>
-        ))}
-      </Pagination>
+      <Container className="d-flex justify-content-center mt-4">
+        <Pagination>
+          {Array.from({ length: totalPages }, (_, i) => (
+            <Pagination.Item
+              key={i + 1}
+              active={i + 1 === currentPage}
+              onClick={() => paginate(i + 1)}
+            >
+              {i + 1}
+            </Pagination.Item>
+          ))}
+        </Pagination>
+      </Container>
     </div>
   );
 };
+
 export default Home;
