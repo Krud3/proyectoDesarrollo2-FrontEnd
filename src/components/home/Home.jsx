@@ -69,7 +69,7 @@ const Home = () => {
       <div className="title-wrapper">
         <img
           src="https://cdn-icons-png.flaticon.com/512/103/103461.png"
-          alt="Left"
+          alt="nu Left"
           className="title-image"
         />
           <h1 className="welcome-title display-4">
@@ -78,7 +78,7 @@ const Home = () => {
           </h1>
           <img
             src="https://cdn-icons-png.flaticon.com/512/103/103461.png"
-            alt="Right"
+            alt="nu Right"
             className="title-image flipped"
           />
         </div>
@@ -86,13 +86,13 @@ const Home = () => {
         <div className="auction-header">
           <img
             src="https://cdn-icons-png.flaticon.com/512/1076/1076724.png"
-            alt="Left"
+            alt="nu Left"
             className="title-image2"
           />
           <p className="collection-text lead">Artwork Auction</p>
           <img
             src="https://cdn-icons-png.flaticon.com/512/1076/1076724.png"
-            alt="Right"
+            alt="nu Right"
             className="title-image2 flipped"
           />
         </div>
