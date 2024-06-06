@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:8001/auction_app/v1/api',
+  baseURL: 'https://ds2-backend-096a70ca1369.herokuapp.com/auction_app/v1/api',
 });
 
 axiosInstance.interceptors.request.use(
