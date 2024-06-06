@@ -66,19 +66,19 @@ const Home = () => {
   return (
     <div>
       <Container className="text-center my-5">
-        <div className="title-wrapper">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/103/103461.png"
-            alt="Left Image"
-            className="title-image"
-          />
+      <div className="title-wrapper">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/103/103461.png"
+          alt="Left"
+          className="title-image"
+        />
           <h1 className="welcome-title display-4">
             Welcome to <br />{" "}
             <span className="gallery-title">Gallery Gavel</span>
           </h1>
           <img
             src="https://cdn-icons-png.flaticon.com/512/103/103461.png"
-            alt="Right Image"
+            alt="Right"
             className="title-image flipped"
           />
         </div>
@@ -86,13 +86,13 @@ const Home = () => {
         <div className="auction-header">
           <img
             src="https://cdn-icons-png.flaticon.com/512/1076/1076724.png"
-            alt="Left Image"
+            alt="Left"
             className="title-image2"
           />
           <p className="collection-text lead">Artwork Auction</p>
           <img
             src="https://cdn-icons-png.flaticon.com/512/1076/1076724.png"
-            alt="Right Image"
+            alt="Right"
             className="title-image2 flipped"
           />
         </div>
@@ -100,7 +100,7 @@ const Home = () => {
       <Container className="carousel-wrapper">
         <Carousel>
           {carouselData.map((item, index) => (
-            <Carousel.Item key={index}>
+            <Carousel.Item key={`carousel-item-${index}`}>
               <img
                 className="d-block w-100"
                 src={item.src}
