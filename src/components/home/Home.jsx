@@ -1,14 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Carousel from "react-bootstrap/Carousel";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Pagination from "react-bootstrap/Pagination";
+import axiosInstance from '../../axiosConfig'; // Asegúrate de que la ruta a axiosConfig es correcta
+import { login } from '../../auth'; // Asegúrate de que la ruta a auth es correcta
 import "./home.css";
 
 const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [artworks, setArtworks] = useState([]); // Añadido state artworks
   const itemsPerPage = 6; // Máximo de tarjetas por página
+
+  // Añadido useEffect para obtener datos del backend
+  useEffect(() => {
+    const authenticateAndFetchArtworks = async () => {
+      try {
+        await login();
+        const response = await axiosInstance.get('/artworks/');
+        setArtworks(response.data);
+      } catch (error) {
+        console.error("Error fetching artworks:", error);
+      }
+    };
+
+    authenticateAndFetchArtworks();
+  }, []);
 
   // Datos simulados para 20 tarjetas
   const totalItems = 20;
@@ -89,7 +107,21 @@ const Home = () => {
           </Pagination.Item>
         ))}
       </Pagination>
+      {/* Añadido para mostrar datos del backend */}
+      <Container>
+        <h2>Artworks from Backend:</h2>
+        {artworks.length > 0 ? (
+          <ul>
+            {artworks.map((artwork) => (
+              <li key={artwork.artwork_id}>{artwork.title}</li>
+            ))}
+          </ul>
+        ) : (
+          <p>No artworks available.</p>
+        )}
+      </Container>
     </div>
   );
 };
+
 export default Home;
