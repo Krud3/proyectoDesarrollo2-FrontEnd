@@ -117,7 +117,7 @@ const Home = () => {
             ))}
           </ul>
         ) : (
-          <p>No artworks available.</p>
+          <p>No artworks available. T_T </p>
         )}
       </Container>
     </div>
