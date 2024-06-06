@@ -86,7 +86,7 @@ const Home = () => {
                 className="d-block w-100"
                 src={item.src}
                 alt={item.alt}
-                style={{ height: "485px", objectFit: "fill" }}
+                style={{ height: "485px", width: "300px", objectFit: "fill" }}
               />
               <Carousel.Caption>
                 <h3>{item.caption}</h3>
