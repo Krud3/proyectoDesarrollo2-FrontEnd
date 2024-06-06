@@ -23,7 +23,7 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="navbarSupportedContent" />
                     <Navbar.Collapse id="navbarSupportedContent">
                         <Nav className="me-auto mb-2 mb-lg-0">
-                            <Nav.Link href="#" className="active" aria-current="page">Inicio</Nav.Link>
+                            <Nav.Link href="#carousel" className="active" aria-current="page">Inicio</Nav.Link>
                             <Nav.Link href="#">Autores</Nav.Link>
                             <NavDropdown title="Categorias" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#">Arte abstracto</NavDropdown.Item>
