@@ -1,32 +1,17 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Container from "react-bootstrap/Container";
 import Carousel from "react-bootstrap/Carousel";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Pagination from "react-bootstrap/Pagination";
-import axiosInstance from '../../axiosConfig'; // Asegúrate de que la ruta a axiosConfig es correcta
-import { login } from '../../auth'; // Asegúrate de que la ruta a auth es correcta
+import { getToken } from "./auth"; // Asegúrate de ajustar la ruta si auth.js está en otro directorio
 import "./home.css";
 
 const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [artworks, setArtworks] = useState([]); // Añadido state artworks
+  const [artworks, setArtworks] = useState([]);
   const itemsPerPage = 6; // Máximo de tarjetas por página
-
-  // Añadido useEffect para obtener datos del backend
-  useEffect(() => {
-    const authenticateAndFetchArtworks = async () => {
-      try {
-        await login();
-        const response = await axiosInstance.get('/artworks/');
-        setArtworks(response.data);
-      } catch (error) {
-        console.error("Error fetching artworks:", error);
-      }
-    };
-
-    authenticateAndFetchArtworks();
-  }, []);
 
   // Datos simulados para 20 tarjetas
   const totalItems = 20;
@@ -45,6 +30,26 @@ const Home = () => {
 
   // Cambiar página
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  useEffect(() => {
+    const fetchArtworks = async () => {
+      const token = await getToken('facil', '123facil123');
+      if (token) {
+        try {
+          const response = await axios.get('https://ds2-backend-096a70ca1369.herokuapp.com/auction_app/v1/api/artworks/', {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          });
+          setArtworks(response.data);
+        } catch (error) {
+          console.error('Error fetching artworks:', error);
+        }
+      }
+    };
+
+    fetchArtworks();
+  }, []);
 
   return (
     <div>
@@ -95,6 +100,12 @@ const Home = () => {
             </Card.Body>
           </Card>
         ))}
+        {artworks.map((artwork) => (
+          <div key={artwork.id}>
+            <h3>{artwork.title}</h3>
+            <p>{artwork.description}</p>
+          </div>
+        ))}
       </Container>
       <Pagination>
         {Array.from({ length: totalPages }, (_, i) => (
@@ -107,21 +118,7 @@ const Home = () => {
           </Pagination.Item>
         ))}
       </Pagination>
-      {/* Añadido para mostrar datos del backend */}
-      <Container>
-        <h2>Artworks from Backend:</h2>
-        {artworks.length > 0 ? (
-          <ul>
-            {artworks.map((artwork) => (
-              <li key={artwork.artwork_id}>{artwork.title}</li>
-            ))}
-          </ul>
-        ) : (
-          <p>No artworks available. T_T </p>
-        )}
-      </Container>
     </div>
   );
 };
-
 export default Home;

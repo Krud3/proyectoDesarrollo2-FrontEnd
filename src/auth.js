@@ -1,23 +1,16 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_BASE_URL + '/token/';
+const BASE_URL = 'https://ds2-backend-096a70ca1369.herokuapp.com';
 
-const login = async () => {
+export const getToken = async (username, password) => {
   try {
-    const response = await axios.post(API_URL, { 
-      username: import.meta.env.VITE_API_USERNAME, 
-      password: import.meta.env.VITE_API_PASSWORD 
+    const response = await axios.post(`${BASE_URL}/auction_app/v1/api/token/`, {
+      username: username,
+      password: password
     });
-    if (response.data.access) {
-      localStorage.setItem('access_token', response.data.access);
-      localStorage.setItem('refresh_token', response.data.refresh);
-      axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.access}`;
-    }
-    return response.data;
+    return response.data.access;
   } catch (error) {
-    console.error("Error logging in:", error);
-    throw error;
+    console.error('Error fetching token:', error);
+    return null;
   }
 };
-
-export { login };
