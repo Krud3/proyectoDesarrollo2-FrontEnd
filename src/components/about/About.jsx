@@ -18,7 +18,7 @@ const About=()=>{
                         </a>
                         <a href="/employer">
                             <p>¿Como vender?</p>
-                        </a>
+                        </a> 
                         <a href="/employer">
                             <p>Central de ayuda</p>
                         </a>
