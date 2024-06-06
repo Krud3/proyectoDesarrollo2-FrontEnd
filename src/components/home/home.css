@@ -1,5 +1,5 @@
 body {
-    background-color: #f8e09d; 
+    background-color: #e6e6e6; 
 }
 
 .carousel-wrapper {
@@ -12,15 +12,36 @@ body {
     border: 9px solid #442700; 
     border-radius: 10px;
     height: 500px; 
-    
 }
 
 .carousel-image {
      
     object-fit: cover;
     border-radius: 0.5px; 
-
 }
+
+.carousel-caption h3 {
+    color: #ffffff; /* Cambia el color del texto */
+    font-size: 20px; /* Cambia el tamaño de la fuente */
+    background-color: rgba(0, 0, 0, 0.5); /* Cambia el color de fondo del subtítulo */
+    padding: 20px; /* Agrega espacio alrededor del texto */
+    position: absolute;
+    bottom: 0; /* Posiciona el texto en la parte inferior */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%; /* Asegúrate de que cubra todo el ancho */
+    text-align: center;
+    z-index: 5; /* Nivel de apilamiento del texto */
+    padding: 20px; /* Espaciado vertical dentro del caption */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra del texto */
+    width: 140%;
+    
+
+
+
+
+  }
+  
 
 .cards-container {
     display: flex;
@@ -65,11 +86,22 @@ body {
 }
 
 .flipped {
-    transform: scaleX(-1); /* Espejar horizontalmente */
-  }
-  
+  transform: scaleX(-1); /* Espejar horizontalmente */
+}
+
+.auction-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-image2 {
+  width: 80px;
+  margin: 0 50px; 
+}
+
 .collection-text {
     font-family: 'Helvetica', sans-serif;
-    color: #997b00; 
+    color: #786519; 
     font-size: 30px; 
 }

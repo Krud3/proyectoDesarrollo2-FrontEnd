@@ -23,16 +23,16 @@ const Home = () => {
   // Datos para el carrusel
   const carouselData = [
     {
-      src: "https://i.pinimg.com/564x/ce/9d/01/ce9d01eae7093b311218e20fbee410f5.jpg",
-      alt: "First slide",
+      src: "https://deepdreamgenerator.com/storage/fast_queue/temp_images/536086a65cf784b78a8af7645aa3be49efb96d0c.jpg",
+      caption: "Sumérgete en la emoción de las subastas de arte: ¡cada obra tiene una historia que contar!",
     },
     {
-      src: "https://www.artic.edu/iiif/2/2d484387-2509-5e8e-2c43-22f9981972eb/full/843,/0/default.jpg",
-      alt: "Second slide",
+      src: "https://deepdreamgenerator.com/storage/fast_queue/temp_images/1fd1ac7bac495752f95259edf8dd64ce1c9f68fe.jpg",
+      caption: "¡Descubre la emoción de la subasta! Hazte con una pieza única en nuestra colección exclusiva",
     },
     {
-      src: "https://i.pinimg.com/564x/df/23/35/df23359e19e3f33e6fdd12189d6c15c0.jpg",
-      alt: "Third slide",
+      src: "https://deepdreamgenerator.com/storage/fast_queue/temp_images/4e0761140ccfe9c10d12ea4755547f2e06183b82.jpg",
+      caption: "Sumérgete en el mundo del arte con nuestras subastas. Encuentra tu próxima joya artística",
     },
   ];
 
@@ -47,15 +47,37 @@ const Home = () => {
   return (
     <div>
       <Container className="text-center my-5">
-  <div className="title-wrapper">
-    <img src="https://cdn-icons-png.flaticon.com/512/103/103461.png" alt="Left Image" className="title-image" />
-    <h1 className="welcome-title display-4">
-      Welcome to <br /> <span className="gallery-title">Gallery Gavel</span>
-    </h1>
-    <img src="https://cdn-icons-png.flaticon.com/512/103/103461.png" alt="Right Image" className="title-image flipped" />
-  </div>
-  <p className="collection-text lead">explore our artwork collection </p>
-</Container>
+        <div className="title-wrapper">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/103/103461.png"
+            alt="Left Image"
+            className="title-image"
+          />
+          <h1 className="welcome-title display-4">
+            Welcome to <br />{" "}
+            <span className="gallery-title">Gallery Gavel</span>
+          </h1>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/103/103461.png"
+            alt="Right Image"
+            className="title-image flipped"
+          />
+        </div>
+
+        <div className="auction-header">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1076/1076724.png"
+            alt="Left Image"
+            className="title-image2"
+          />
+          <p className="collection-text lead">Artwork Auction</p>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1076/1076724.png"
+            alt="Right Image"
+            className="title-image2 flipped"
+          />
+        </div>
+      </Container>
       <Container className="carousel-wrapper">
         <Carousel>
           {carouselData.map((item, index) => (
@@ -66,13 +88,20 @@ const Home = () => {
                 alt={item.alt}
                 style={{ height: "485px", objectFit: "fill" }}
               />
+              <Carousel.Caption>
+                <h3>{item.caption}</h3>
+              </Carousel.Caption>
             </Carousel.Item>
           ))}
         </Carousel>
       </Container>
       <Container className="cards-container">
         {currentCards.map((card) => (
-          <Card key={card.id} className="m-3 shadow-sm" style={{ width: "18rem" }}>
+          <Card
+            key={card.id}
+            className="m-3 shadow-sm"
+            style={{ width: "18rem" }}
+          >
             <Card.Img variant="top" src={card.image} />
             <Card.Body>
               <Card.Title>{card.title}</Card.Title>
