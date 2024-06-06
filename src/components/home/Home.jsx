@@ -5,7 +5,7 @@ import Carousel from "react-bootstrap/Carousel";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Pagination from "react-bootstrap/Pagination";
-import { getToken } from "./auth"; // Asegúrate de ajustar la ruta si auth.js está en otro directorio
+import { getToken } from "../../auth"; // Asegúrate de ajustar la ruta si auth.js está en otro directorio
 import "./home.css";
 
 const Home = () => {
