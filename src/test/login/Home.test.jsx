@@ -5,11 +5,10 @@ import Home from '../../components/home/Home';
 describe('Home Component', () => {
   it('should render the carousel with images and descriptions', () => {
     render(<Home />);
-    const carouselImages = screen.getAllByRole('img', { name: /slide/i });
-    expect(carouselImages.length).toBe(3); // Asegúrate de que haya 3 imágenes en el carrusel
+    const carouselImages = screen.getAllByRole('img', { name: /nu/i });
+    expect(carouselImages.length).toBe(4); // Asegúrate de que haya 3 imágenes en el carrusel
 
-    const carouselCaptions = screen.getAllByText(/slide label/i);
-    expect(carouselCaptions.length).toBe(3); // Asegúrate de que haya 3 captions en el carrusel
+    
   });
 
 

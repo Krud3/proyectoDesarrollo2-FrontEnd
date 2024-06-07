@@ -5,9 +5,13 @@ env:
     VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 on:
-    push:
-        branches-ignore:
-            - main
+    pull_request:
+        branches:
+           - develop
+           - develop-juan
+           - develop-javier
+           - develop-estiven
+        
 
 jobs:
     Test:
